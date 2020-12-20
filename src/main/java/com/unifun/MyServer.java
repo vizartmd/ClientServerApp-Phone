@@ -6,7 +6,6 @@ import org.apache.log4j.Logger;
 import java.io.DataInputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -27,9 +26,6 @@ public class MyServer {
       String str = dis.readUTF();
       logger.info("Deserialization was successful!\n" +
               "Input message: " + str);
-      ObjectMapper objectMapper = new ObjectMapper();
-      myPhones = objectMapper.readValue(str, new TypeReference<>(){});
-
       socket.close();
 
     } catch (Exception e) {
